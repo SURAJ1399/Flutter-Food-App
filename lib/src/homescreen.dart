@@ -1,5 +1,7 @@
+import 'package:FoodApp/src/widgets/food_category.dart';
 import 'package:flutter/material.dart';
 import 'widgets/home_top_info.dart';
+import 'widgets/food_category.dart';
 
 class HomeScreen extends StatefulWidget{
 
@@ -16,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen>{
       padding: EdgeInsets.only(top:50.0,left:20.0,right: 20),
        children: <Widget>[
          HomeTopInfo(),
+         FoodCategory(),
        ],
        ),
        

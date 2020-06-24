@@ -4,9 +4,9 @@ class HomeTopInfo extends StatelessWidget{
   
   @override
   Widget build(BuildContext context) {
-    return    
-    
-      Row(
+    return   Container(
+      margin: EdgeInsets.only(bottom:20.0),
+     child:   Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -22,6 +22,9 @@ class HomeTopInfo extends StatelessWidget{
                   ),
                   Icon(Icons.notifications_none,size: 30,color: Theme.of(context).primaryColor,)
                 ],
-              );
-  }
+              ),
+ 
+    );
+    
+     }
 }
