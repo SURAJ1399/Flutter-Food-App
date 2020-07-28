@@ -15,7 +15,7 @@ class HomeTopInfo extends StatelessWidget{
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
 
-                      Text("What would",style: TextStyle(fontSize: 32.0,fontWeight:FontWeight.bold),),
+                      Text("What would",style: TextStyle(fontSize: 32.0,fontWeight:FontWeight.bold)),
                       Text("you like to eat?",style: TextStyle(fontSize: 32.0,fontWeight:FontWeight.bold))
                     ],
 
