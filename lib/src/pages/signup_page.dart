@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../pages/signup_page.dart]]';
+import '../pages/sigin_page.dart';
+
 
 class SignUpPage extends StatefulWidget{
   _SignUpPageState createState()=>_SignUpPageState();
@@ -8,27 +9,70 @@ class SignUpPage extends StatefulWidget{
 class _SignUpPageState extends State<SignUpPage>
 { bool toggle=false;
 
-  Widget _buildEmailTextField(){
+  Widget _buildusernameTextField(){
 
     return TextFormField(
 
 decoration: InputDecoration(
-  hintText: "Your email or username",
+  hintText: "Username",
   hintStyle: TextStyle(
     color:Color(0xFFBDC2CB),fontSize: 18.0,
   ),
 ),
 
+
     );
     
   }
 
+  Widget _buildEmailTextField(){
+
+    return TextFormField(
+
+decoration: InputDecoration(
+  hintText: "Email",
+  hintStyle: TextStyle(
+    color:Color(0xFFBDC2CB),fontSize: 18.0,
+  ),
+),
+
+
+    );
+    
+  }
   Widget _buildPasswordTextField(){
 
     return TextFormField(
 
 decoration: InputDecoration(
   hintText: "Password",
+  hintStyle: TextStyle(
+    color:Color(0xFFBDC2CB),fontSize: 18.0,
+  ),
+  suffixIcon: IconButton(icon: toggle ?
+  Icon(Icons.visibility_off):Icon(Icons.visibility), onPressed: (){
+   setState(() {
+     toggle=!toggle;
+   
+});
+  },
+  
+
+  ),
+),
+obscureText: toggle,
+
+
+    );
+    
+  }
+  
+  Widget _buildconfirmPasswordTextField(){
+
+    return TextFormField(
+
+decoration: InputDecoration(
+  hintText: "Confirm Password",
   hintStyle: TextStyle(
     color:Color(0xFFBDC2CB),fontSize: 18.0,
   ),
@@ -53,6 +97,7 @@ obscureText: toggle,
     @override
     Widget build(BuildContext context) {
       return Scaffold(
+        resizeToAvoidBottomPadding: false,
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal:10.0),
           child: Column(
@@ -63,24 +108,21 @@ obscureText: toggle,
               SizedBox(
                 height:100,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children:<Widget>
-                [
-                  Text("Forgotten Password?",style: TextStyle(color:Colors.blueAccent,fontSize:18,fontWeight: FontWeight.bold),),
-                  SizedBox(height:40),
-                ]
-              )
-            ,
+
             Card(
               elevation:10 ,
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children:<Widget>[
+                      _buildusernameTextField(),
+                          SizedBox(height:20),
                      _buildEmailTextField(),
                      SizedBox(height:20),
                      _buildPasswordTextField(),
+                     
+                     SizedBox(height:20),
+                     _buildconfirmPasswordTextField(),
                   ]
                 ),
               ),
@@ -109,11 +151,11 @@ obscureText: toggle,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children:<Widget>[
-                Text("Dont't have a account?", style:TextStyle(color:Colors.grey,fontSize: 18.0,fontWeight: FontWeight.bold)),
+                Text("Already  have a account?", style:TextStyle(color:Colors.grey,fontSize: 18.0,fontWeight: FontWeight.bold)),
                 SizedBox(width:10),
                 GestureDetector(
                   onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext cotext)=>SignUpPage()));
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext cotext)=>SigInPage()));
                   },
                   child: Text("Sign In", style:TextStyle(color:Colors.blueAccent,fontSize: 18.0,fontWeight: FontWeight.bold))),
 

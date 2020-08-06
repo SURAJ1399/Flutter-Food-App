@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import '../pages/signup_page.dart';
 
 class SigInPage extends StatefulWidget{
   _SignInPageState createState()=>_SignInPageState();
 
 }
 class _SignInPageState extends State<SigInPage>
-{ bool toggle=false;
+{ bool toggle=true;
 
   Widget _buildEmailTextField(){
 
@@ -31,7 +32,8 @@ decoration: InputDecoration(
   hintStyle: TextStyle(
     color:Color(0xFFBDC2CB),fontSize: 18.0,
   ),
-  suffixIcon: IconButton(icon: Icon(Icons.visibility_off), onPressed: (){
+  suffixIcon: IconButton(icon: toggle ?
+  Icon(Icons.visibility_off):Icon(Icons.visibility), onPressed: (){
    setState(() {
      toggle=!toggle;
    
@@ -109,7 +111,12 @@ obscureText: toggle,
               children:<Widget>[
                 Text("Dont't have a account?", style:TextStyle(color:Colors.grey,fontSize: 18.0,fontWeight: FontWeight.bold)),
                 SizedBox(width:10),
-                Text("Sign Up", style:TextStyle(color:Colors.blueAccent,fontSize: 18.0,fontWeight: FontWeight.bold)),
+                GestureDetector(
+                  onTap:(){
+
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=>SignUpPage()));
+                  },
+                  child: Text("Sign Up", style:TextStyle(color:Colors.blueAccent,fontSize: 18.0,fontWeight: FontWeight.bold))),
 
               ]
             )

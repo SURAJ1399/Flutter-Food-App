@@ -12,7 +12,7 @@ class MainScreen extends StatefulWidget{
 class _MainScreenState extends State<MainScreen>
 
  { 
-      int currentindex=0;
+     int currentindex=0;
      List<Widget>pages;
      Widget currentpage;
      HomePage homePage;
