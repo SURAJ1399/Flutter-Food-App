@@ -1,10 +1,14 @@
 
 import 'package:FoodApp/src/pages/favorite_page.dart';
 import 'package:FoodApp/src/pages/profile_page.dart';
+import 'package:FoodApp/src/scoped_model/main_model.dart';
 import 'package:flutter/material.dart';
 import '../pages/home_page.dart';
 import '../pages/order_page.dart';
+
 class MainScreen extends StatefulWidget{
+  final MainModel model;
+  MainScreen({this.model});
 
   @override
  _MainScreenState createState()=>_MainScreenState();
@@ -22,7 +26,8 @@ class _MainScreenState extends State<MainScreen>
   
     @override
       void initState() {
-      
+
+    widget.model.fetchFoods();
         super.initState();
         homePage=HomePage();
         orderPage=OrderPage();

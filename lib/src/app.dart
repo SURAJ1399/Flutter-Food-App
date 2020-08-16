@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 import 'screens/main_screen.dart';
+
+import 'scoped_model/main_model.dart';
 class App extends StatelessWidget{
+final MainModel mainModel=MainModel();
 
    @override
   Widget build(BuildContext context) {
-    return MaterialApp
+    return ScopedModel<MainModel>(
+      model:mainModel,
+          child: MaterialApp
     (
 
 debugShowCheckedModeBanner: false,
@@ -14,7 +20,10 @@ debugShowCheckedModeBanner: false,
 
         primaryColor: Colors.blueAccent
       ),
-      home: MainScreen(),
+      home: MainScreen(model:mainModel),
+    ),
+
     );
+    
   }
 }
