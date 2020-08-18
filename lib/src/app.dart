@@ -1,3 +1,4 @@
+import 'package:FoodApp/src/admin/pages/add_food_item.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -20,7 +21,8 @@ debugShowCheckedModeBanner: false,
 
         primaryColor: Colors.blueAccent
       ),
-      home: MainScreen(model:mainModel),
+   //   home: MainScreen(model:mainModel),
+   home: AddFoodItem(),
     ),
 
     );
