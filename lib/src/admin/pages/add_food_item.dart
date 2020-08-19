@@ -1,5 +1,8 @@
+import 'package:FoodApp/src/model/food_model.dart';
+import 'package:FoodApp/src/scoped_model/main_model.dart';
 import 'package:FoodApp/src/widgets/button.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class AddFoodItem extends StatefulWidget {
   AddFoodItem({Key key}) : super(key: key);
@@ -43,14 +46,26 @@ class _AddFoodItemState extends State<AddFoodItem> {
               _buildTextFormField("Price"),
                 _buildTextFormField("Discount"),
                      SizedBox(height:60),
-              GestureDetector(
+        ScopedModelDescendant(builder: (BuildContext context, Widget child, MainModel model)
+        {
+          return     GestureDetector(
                 onTap: (){
                   if(_fooditemkey.currentState.validate()){
                     _fooditemkey.currentState.save();
+                  final Food food=  Food(
+                      name: title,
+                      category: category,
+                      description: desc,
+                      price:double.parse( price),
+                      discount: double.parse( discount),
+                    );
+                    model.addFood(food);
                   }
                 },
-                child: Button(text:"Add Food Item")),
+                child: Button(text:"Add Food Item"),
+          );
 
+        }),
 
               ],
             ),
@@ -73,7 +88,7 @@ return TextFormField(
           return "Invalid Details..!!";
         },
         onChanged: (String value){
-          if(hint=="Food Title")
+          if(hint=="Food Item")
 {
   title=value;
 }

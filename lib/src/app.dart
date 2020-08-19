@@ -21,8 +21,8 @@ debugShowCheckedModeBanner: false,
 
         primaryColor: Colors.blueAccent
       ),
-   //   home: MainScreen(model:mainModel),
-   home: AddFoodItem(),
+      home: MainScreen(model:mainModel),
+  // home: AddFoodItem(),
     ),
 
     );

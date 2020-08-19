@@ -17,9 +17,10 @@ Widget build(BuildContext context) {
   bool turnnotification=false;
    bool turnnonlocation=true;
     return Scaffold(
+      backgroundColor: Colors.white,
       body:SingleChildScrollView(
               child: Container(
-          padding: EdgeInsets.symmetric(vertical:40,horizontal: 30),
+          padding: EdgeInsets.symmetric(horizontal: 30),
          
           child:Column(
              crossAxisAlignment:CrossAxisAlignment.start,

@@ -6,6 +6,9 @@ class Food{
   final double price;
   final double discount;
   final double rating;
+  
+final String description;
+  
   Food({
     this.category,
     this.imagePath,
@@ -13,5 +16,6 @@ class Food{
     this.id,
     this.name,
     this.price,
+    this.description,
     this.rating});
 }
